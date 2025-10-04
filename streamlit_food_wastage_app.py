@@ -49,7 +49,6 @@ st.markdown("""
         border-radius: 8px;
         padding: 10px 16px;
         cursor: pointer;
-        font-size: 18px;          /* Set font size */
         font-family: Arial, sans-serif;  /* Set font family */
     }
 
@@ -57,7 +56,6 @@ st.markdown("""
     div[role="radiogroup"] label p { 
         color: black !important; 
         font-weight: bold !important; 
-        font-size: 18px;           /* Font size */
         font-family: Arial, sans-serif; /* Font family */
     }
 
@@ -615,8 +613,6 @@ elif page == "Reports":
 
     st.dataframe(df3_expiring, use_container_width=True)
 
-
-
 # ----------------------------
 # 5. Filtering
 # ----------------------------
@@ -627,10 +623,10 @@ elif page == "Filtering":
     st.markdown("""
         <style>
             .stSelectbox div[data-baseweb="select"] > div {
-                color: black !important;
+                color: white !important;
             }
             .stDataFrame div {
-                color: black !important;
+                color: white !important;
             }
         </style>
     """, unsafe_allow_html=True)
