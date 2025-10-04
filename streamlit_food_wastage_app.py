@@ -31,51 +31,63 @@ def load_data(conn):
 conn = init_connection()
 load_data(conn)
 
-# --- CSS for styling ---
 st.markdown("""
     <style>
-    .stRadio > div { 
-        justify-content: center; 
-        gap: 12px; 
+    /* --- Horizontal radio buttons without wrapping --- */
+    .stRadio > div {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 20px !important;   
+        flex-wrap: nowrap !important; 
     }
 
-    /* Style the radio button labels */
     .stRadio label {
-        flex: 1;
-        text-align: center;
-        background-color: lightblue !important;
-        color: black !important;
+        flex: 0 1 auto !important;
+        white-space: nowrap !important;
+        background-color: #E0F2FF !important; /* light blue friendly */
+        color: black !important;  /* Keep radio text always black */
         font-weight: bold;
         border-radius: 8px;
         padding: 10px 16px;
         cursor: pointer;
-        font-family: Arial, sans-serif;  /* Set font family */
+        font-family: Arial, sans-serif;
+        text-align: center;
     }
 
-    /* Style the text inside the label */
     div[role="radiogroup"] label p { 
-        color: black !important; 
+        color: black !important; /* Ensure inner text is black */
         font-weight: bold !important; 
-        font-family: Arial, sans-serif; /* Font family */
+        font-family: Arial, sans-serif; 
+        white-space: nowrap !important;
     }
 
+    /* --- Buttons --- */
     div.stButton > button:first-child {
-        background-color: lavender !important; 
-        color: black !important;
-        border: 1px solid #ccc !important; 
+        background-color: black !important; /* black background for CRUD buttons */
+        color: white !important;            /* white text */
+        border: 1px solid #333 !important; 
         border-radius: 8px !important;
     }
 
     div.stButton > button:first-child:hover { 
-        background-color: lavender !important; 
-        color: black !important; 
+        background-color: #222 !important; 
+        color: white !important; 
     }
 
-    body, .stButton button { color: black; }
-    .stTextInput input { color: black; }
-</style>
+    /* --- Inputs and text --- */
+    body, .stTextInput input, .stSelectbox div {
+        color: var(--text-color) !important;
+        font-size: 16px !important;
+    }
 
+    /* --- DataFrame font --- */
+    .stDataFrame div {
+        color: var(--text-color) !important;
+        font-size: 16px !important;
+    }
+</style>
 """, unsafe_allow_html=True)
+
 
 # --- HEADER ---
 st.markdown("<h1 style='text-align: center;'>🍽️ FOOD WASTE MANAGEMENT SYSTEM</h1>", unsafe_allow_html=True)
